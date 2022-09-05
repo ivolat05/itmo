@@ -63,7 +63,113 @@
     			</div>
     		</div>
     	</div>
+    	<main class="main">
+    		<div class="container">
+    			<div class="main-wrap">
+    				<div class="main-coll">
+    					<h1 class="main-title">
+    						<span class="main-title-span ">
+    							оценка
+    						</span>
+    						рекреационных объектов
+    					</h1>
+    					<p class="main-text">
+    						для маломобильных групп населения, на основе
+    						<span class="main-text-span">
+    							данных из Соц сетей
+    						</span>
+    					</p>
+    					<div class="main-box-btn">
+    						<a href="#" aria-label="Открыть карту с оценкой" class="main-btn-open">
+    							<span class="main-open-span">
+    								Открыть карту с оценкой
+    							</span>
+    						</a>
+    						<a href="#" aria-label="Анализировать свои данные" class="main-btn-analysis">
+    							<span class="main-analysis-span">
+    								Анализировать свои данные
+    							</span>
+    						</a>
+    					</div>
+    				</div>
+    				<div class="main-box-img">
+    					<img width="840" height="486" src="./assets/img/main/main.svg" alt="" class="main-img">
+    				</div>
+    			</div>
+    		</div>
+    	</main>
+    	<section class="maps maps-padding">
+    		<div class="container">
+    			<div class="maps-wrapp">
+    				<h3 class="title maps-title">
+    					<span class="title-span maps-title-span">
+    						Рейтинг
+    					</span>
+    					доступности
+    				</h3>
+    				<div class="maps-row">
+    					<div class="maps-box-btn">
+    						<button class="maps-btn --active" aria-label="Доступность">
+    							Доступность
+    						</button>
+    						<button class="maps-btn" aria-label="Безопасность">
+    							Безопасность
+    						</button>
+    						<button class="maps-btn" aria-label="Районы">
+    							Районы
+    						</button>
+    						<button class="maps-btn" aria-label="Достоверность">
+    							Достоверность
+    						</button>
+    					</div>
+    					<button class="maps-rezet" aria-label="Сбросить">
+    						<svg class="maps-rezet-svg" width="16" height="16" viewBox="0 0 16 16" fill="none"
+    							xmlns="http://www.w3.org/2000/svg">
+    							<g opacity="0.7" clip-path="url(#clip0_4178_41374)">
+    								<path
+    									d="M11.334 2.00004C11.5091 1.82494 11.7169 1.68605 11.9457 1.59129C12.1745 1.49653 12.4197 1.44775 12.6673 1.44775C12.9149 1.44775 13.1601 1.49653 13.3889 1.59129C13.6177 1.68605 13.8256 1.82494 14.0007 2.00004C14.1757 2.17513 14.3146 2.383 14.4094 2.61178C14.5042 2.84055 14.5529 3.08575 14.5529 3.33337C14.5529 3.58099 14.5042 3.82619 14.4094 4.05497C14.3146 4.28374 14.1757 4.49161 14.0007 4.66671L5.00065 13.6667L1.33398 14.6667L2.33398 11L11.334 2.00004Z"
+    									stroke="#1D1D1B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    							</g>
+    							<defs>
+    								<clipPath id="clip0_4178_41374">
+    									<rect width="16" height="16" fill="white" />
+    								</clipPath>
+    							</defs>
+    						</svg>
+    						Сбросить
+    					</button>
+    				</div>
+    				<div class="maps-box">
+    					<div id="map" class="map">
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</section>
     </div>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=вашAPI-ключ&lang=ru_RU">
+    </script>
+    <script>
+    	// Функция ymaps.ready() будет вызвана, когда
+    	// загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+    	ymaps.ready(init);
+    	function init() {
+    		// Создание карты.
+    		var myMap = new ymaps.Map("map", {
+    			// Координаты центра карты.
+    			// Порядок по умолчанию: «широта, долгота».
+    			// Чтобы не определять координаты центра карты вручную,
+    			// воспользуйтесь инструментом Определение координат.
+    			center: [59.942670, 30.278398],
+    			// Уровень масштабирования. Допустимые значения:
+    			// от 0 (весь мир) до 19.
+    			zoom: 12,
+    			controls: []
+    		});
+    		myMap.behaviors.disable('scrollZoom');
+    
+    	}
+    </script>
     
 </body>
 <script src="assets/js/app.min.js"></script>
