@@ -114,16 +114,16 @@
 					</h3>
 					<div class="maps-row">
 						<div class="maps-box-btn ">
-							<button class="maps-btn --active" aria-label="Доступность">
+							<button class="maps-btn --active" aria-label="availability">
 								Доступность
 							</button>
-							<button class="maps-btn" aria-label="Безопасность">
+							<button class="maps-btn" aria-label="safety">
 								Безопасность
 							</button>
-							<button class="maps-btn" aria-label="Районы">
+							<button class="maps-btn" aria-label="districts">
 								Районы
 							</button>
-							<button class="maps-btn" aria-label="Достоверность">
+							<button class="maps-btn" aria-label="reliability">
 								Достоверность
 							</button>
 						</div>
@@ -498,6 +498,80 @@
 	<script src="https://api-maps.yandex.ru/2.1/?apikey=вашAPI-ключ&lang=ru_RU">
 	</script>
 	<script>
+		//Доступность
+		let masp = {
+			"availability": [
+				{
+					'coordinateOne': '59.944670',
+					'coordinateTwo': '30.278398',
+					'text': 'Доступность 1',
+				},
+				{
+					'coordinateOne': '59.956670',
+					'coordinateTwo': '30.278398',
+					'text': 'Доступность 2',
+				},
+				{
+					'coordinateOne': '59.968670',
+					'coordinateTwo': '30.278398',
+					'text': 'Доступность 3',
+				}
+			],
+			"safety": [
+				{
+					'coordinateOne': '59.942670',
+					'coordinateTwo': '30.258398',
+					'text': 'Безопасность 1',
+				},
+				{
+					'coordinateOne': '59.952670',
+					'coordinateTwo': '30.258398',
+					'text': 'Безопасность 2',
+				},
+				{
+					'coordinateOne': '59.962670',
+					'coordinateTwo': '30.258398',
+					'text': 'Безопасность 3',
+				}
+			],
+			"districts": [
+				{
+					'coordinateOne': '59.942670',
+					'coordinateTwo': '30.278398',
+					'text': 'Доступность 1',
+				},
+				{
+					'coordinateOne': '59.952670',
+					'coordinateTwo': '30.278398',
+					'text': 'Доступность 2',
+				},
+				{
+					'coordinateOne': '59.962670',
+					'coordinateTwo': '30.278398',
+					'text': 'Доступность 3',
+				}
+			],
+			"reliability": [
+				{
+					'coordinateOne': '59.902670',
+					'coordinateTwo': '30.258398',
+					'text': 'Безопасность 1',
+				},
+				{
+					'coordinateOne': '59.922670',
+					'coordinateTwo': '30.258398',
+					'text': 'Безопасность 2',
+				},
+				{
+					'coordinateOne': '59.932670',
+					'coordinateTwo': '30.258398',
+					'text': 'Безопасность 3',
+				}
+			]
+		}
+	
+	
+	
 		// Функция ymaps.ready() будет вызвана, когда
 		// загрузятся все компоненты API, а также когда будет готово DOM-дерево.
 		ymaps.ready(init);
@@ -516,19 +590,28 @@
 			});
 			myMap.behaviors.disable('scrollZoom');
 	
+	
+	
 			// добовление удаление маркеров
 			function addMark() {
 				let mapsBtn = document.querySelectorAll('.maps-btn');
 				let mapsRezet = document.querySelector('.maps-rezet');
+	
 				mapsBtn.forEach(item => {
 					item.addEventListener('click', () => {
+						let dataArr = item.getAttribute('aria-label');
 						mapsBtn.forEach(e => {
 							if (e.classList.contains('--active')) {
 								e.classList.remove('--active')
 							}
 						})
 						item.classList.add('--active')
-						addMarkerMap('59.942670, 30.278398', 'текст 1')
+						myMap.geoObjects.removeAll()
+						masp[dataArr].forEach(item => {
+							addMarkerMap(item.coordinateOne, item.coordinateTwo, item.text)
+						})
+	
+						myMap.setCenter([masp[dataArr][0]['coordinateOne'], masp[dataArr][0]['coordinateTwo']], 12);
 					})
 				})
 				mapsRezet.addEventListener('click', () => {
@@ -536,11 +619,12 @@
 						if (e.classList.contains('--active')) {
 							e.classList.remove('--active')
 						}
+						myMap.geoObjects.removeAll()
 					})
 				})
 	
-				function addMarkerMap(coordinate, text) {
-					myMap.geoObjects.add(new ymaps.Placemark([`${coordinate}`], {
+				function addMarkerMap(coordinateOne, coordinateTwo, text) {
+					myMap.geoObjects.add(new ymaps.Placemark([`${coordinateOne}`, `${coordinateTwo}`], {
 						balloonContent: `${text}`
 					}, {
 						// Опции.
