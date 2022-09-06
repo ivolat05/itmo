@@ -498,156 +498,239 @@
 	<script src="https://api-maps.yandex.ru/2.1/?apikey=вашAPI-ключ&lang=ru_RU">
 	</script>
 	<script>
-		//Доступность
-		let masp = {
-			"availability": [
+		async function mapInit() {
+	
+	
+			let availability = [
 				{
-					'coordinateOne': '59.944670',
-					'coordinateTwo': '30.278398',
-					'text': 'Доступность 1',
+					"coordinateOne": "59.944670",
+					"coordinateTwo": "30.278398",
+					"index": "1",
+					"name": "Орловский парк",
+					"status": "Доступность 1",
+					"link": "https://yandex.by/maps/2/saint-petersburg/?ll=30.315635%2C59.938951&z=11"
 				},
 				{
-					'coordinateOne': '59.956670',
-					'coordinateTwo': '30.278398',
-					'text': 'Доступность 2',
+					"coordinateOne": "59.956670",
+					"coordinateTwo": "30.278398",
+					"index": "3",
+					"name": "Орловский парк 1",
+					"status": "Доступность 2",
+					"link": "https://yandex.by/maps/2/saint-petersburg/?ll=30.315635%2C59.938951&z=11"
 				},
 				{
-					'coordinateOne': '59.968670',
-					'coordinateTwo': '30.278398',
-					'text': 'Доступность 3',
+					"coordinateOne": "59.968670",
+					"coordinateTwo": "30.278398",
+					"index": "4.5",
+					"name": "Орловский парк 2",
+					"status": "Доступность 3",
+					"link": "https://yandex.by/maps/2/saint-petersburg/?ll=30.315635%2C59.938951&z=11"
 				}
-			],
-			"safety": [
+			];
+			let safety = [
 				{
-					'coordinateOne': '59.942670',
-					'coordinateTwo': '30.258398',
-					'text': 'Безопасность 1',
+					"coordinateOne": "59.942670",
+					"coordinateTwo": "30.258398",
+					"index": "1",
+					"name": "Орловский парк",
+					"status": "Доступность 1",
+					"link": "https://yandex.by/maps/2/saint-petersburg/?ll=30.315635%2C59.938951&z=11"
 				},
 				{
-					'coordinateOne': '59.952670',
-					'coordinateTwo': '30.258398',
-					'text': 'Безопасность 2',
+					"coordinateOne": "59.952670",
+					"coordinateTwo": "30.258398",
+					"index": "3",
+					"name": "Орловский парк 1",
+					"status": "Доступность 2",
+					"link": "https://yandex.by/maps/2/saint-petersburg/?ll=30.315635%2C59.938951&z=11"
 				},
 				{
-					'coordinateOne': '59.962670',
-					'coordinateTwo': '30.258398',
-					'text': 'Безопасность 3',
+					"coordinateOne": "59.962670",
+					"coordinateTwo": "30.258398",
+					"index": "4.5",
+					"name": "Орловский парк 2",
+					"status": "Доступность 3",
+					"link": "https://yandex.by/maps/2/saint-petersburg/?ll=30.315635%2C59.938951&z=11"
 				}
-			],
-			"districts": [
+			];
+			let districts = [
 				{
-					'coordinateOne': '59.942670',
-					'coordinateTwo': '30.278398',
-					'text': 'Доступность 1',
+					"coordinateOne": "59.942670",
+					"coordinateTwo": "30.278398",
+					"index": "1",
+					"name": "Орловский парк",
+					"status": "Доступность 1",
+					"link": "https://yandex.by/maps/2/saint-petersburg/?ll=30.315635%2C59.938951&z=11"
 				},
 				{
-					'coordinateOne': '59.952670',
-					'coordinateTwo': '30.278398',
-					'text': 'Доступность 2',
+					"coordinateOne": "59.952670",
+					"coordinateTwo": "30.278398",
+					"index": "3",
+					"name": "Орловский парк 1",
+					"status": "Доступность 2",
+					"link": "https://yandex.by/maps/2/saint-petersburg/?ll=30.315635%2C59.938951&z=11"
 				},
 				{
-					'coordinateOne': '59.962670',
-					'coordinateTwo': '30.278398',
-					'text': 'Доступность 3',
+					"coordinateOne": "59.962670",
+					"coordinateTwo": "30.278398",
+					"index": "4.5",
+					"name": "Орловский парк 2",
+					"status": "Доступность 3",
+					"link": "https://yandex.by/maps/2/saint-petersburg/?ll=30.315635%2C59.938951&z=11"
 				}
-			],
-			"reliability": [
+			];
+			let reliability = [
 				{
-					'coordinateOne': '59.902670',
-					'coordinateTwo': '30.258398',
-					'text': 'Безопасность 1',
+					"coordinateOne": "59.902670",
+					"coordinateTwo": "30.258398",
+					"index": "1",
+					"name": "Орловский парк",
+					"status": "Доступность 1",
+					"link": "https://yandex.by/maps/2/saint-petersburg/?ll=30.315635%2C59.938951&z=11"
 				},
 				{
-					'coordinateOne': '59.922670',
-					'coordinateTwo': '30.258398',
-					'text': 'Безопасность 2',
+					"coordinateOne": "59.922670",
+					"coordinateTwo": "30.258398",
+					"index": "3",
+					"name": "Орловский парк 1",
+					"status": "Доступность 2",
+					"link": "https://yandex.by/maps/2/saint-petersburg/?ll=30.315635%2C59.938951&z=11"
 				},
 				{
-					'coordinateOne': '59.932670',
-					'coordinateTwo': '30.258398',
-					'text': 'Безопасность 3',
+					"coordinateOne": "59.932670",
+					"coordinateTwo": "30.258398",
+					"index": "4.5",
+					"name": "Орловский парк 2",
+					"status": "Доступность 3",
+					"link": "https://yandex.by/maps/2/saint-petersburg/?ll=30.315635%2C59.938951&z=11"
 				}
-			]
-		}
+			];
+			// Функция ymaps.ready() будет вызвана, когда
+			// загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+			ymaps.ready(init);
+			function init() {
+				// Создание карты.
+				var myMap = new ymaps.Map("map", {
+					// Координаты центра карты.
+					// Порядок по умолчанию: «широта, долгота».
+					// Чтобы не определять координаты центра карты вручную,
+					// воспользуйтесь инструментом Определение координат.
+					center: [59.942670, 30.278398],
+					// Уровень масштабирования. Допустимые значения:
+					// от 0 (весь мир) до 19.
+					zoom: 12,
+					controls: []
+				});
+				myMap.behaviors.disable('scrollZoom');
+	
+				addMarkerMap(availability)
+				myMap.events.add('click', function () {
+					myMap.balloon.close();
+				});
+	
+				// добовление удаление маркеров
+				function addMark() {
+					let mapsBtn = document.querySelectorAll('.maps-btn');
+					let mapsRezet = document.querySelector('.maps-rezet');
+	
+					mapsBtn.forEach(item => {
+						item.addEventListener('click', () => {
+							let dataArr = item.getAttribute('aria-label');
+							let dataItem;
+							if (dataArr == 'availability') {
+								dataItem = availability;
+							}
+							if (dataArr == 'safety') {
+								dataItem = safety;
+							}
+							if (dataArr == 'districts') {
+								dataItem = districts;
+							}
+							if (dataArr == 'reliability') {
+								dataItem = reliability;
+							}
+	
+							mapsBtn.forEach(e => {
+								if (e.classList.contains('--active')) {
+									e.classList.remove('--active')
+								}
+							})
+							item.classList.add('--active')
+							myMap.geoObjects.removeAll()
+	
+							addMarkerMap(dataItem)
 	
 	
-	
-		// Функция ymaps.ready() будет вызвана, когда
-		// загрузятся все компоненты API, а также когда будет готово DOM-дерево.
-		ymaps.ready(init);
-		function init() {
-			// Создание карты.
-			var myMap = new ymaps.Map("map", {
-				// Координаты центра карты.
-				// Порядок по умолчанию: «широта, долгота».
-				// Чтобы не определять координаты центра карты вручную,
-				// воспользуйтесь инструментом Определение координат.
-				center: [59.942670, 30.278398],
-				// Уровень масштабирования. Допустимые значения:
-				// от 0 (весь мир) до 19.
-				zoom: 12,
-				controls: []
-			});
-			myMap.behaviors.disable('scrollZoom');
-			masp['availability'].forEach(item => {
-				addMarkerMap(item.coordinateOne, item.coordinateTwo, item.text)
-			})
-	
-	
-			// добовление удаление маркеров
-			function addMark() {
-				let mapsBtn = document.querySelectorAll('.maps-btn');
-				let mapsRezet = document.querySelector('.maps-rezet');
-	
-				mapsBtn.forEach(item => {
-					item.addEventListener('click', () => {
-						let dataArr = item.getAttribute('aria-label');
+						})
+					})
+					mapsRezet.addEventListener('click', () => {
 						mapsBtn.forEach(e => {
 							if (e.classList.contains('--active')) {
 								e.classList.remove('--active')
 							}
+							myMap.geoObjects.removeAll()
 						})
-						item.classList.add('--active')
-						myMap.geoObjects.removeAll()
-						masp[dataArr].forEach(item => {
-							addMarkerMap(item.coordinateOne, item.coordinateTwo, item.text)
-						})
-	
-						myMap.setCenter([masp[dataArr][0]['coordinateOne'], masp[dataArr][0]['coordinateTwo']], 12);
 					})
-				})
-				mapsRezet.addEventListener('click', () => {
-					mapsBtn.forEach(e => {
-						if (e.classList.contains('--active')) {
-							e.classList.remove('--active')
+	
+	
+				}
+				addMark()
+				function addMarkerMap(massiveData) {
+					let myCollection = new ymaps.GeoObjectCollection();
+					massiveData.forEach(item => {
+						let imgBalun;
+						if (2 >= item.index && item.index >= 0) {
+							imgBalun = 'red.svg'
+						} else if (4 > item.index && item.index > 2) {
+							imgBalun = 'yellow.svg'
+						} else if (5 >= item.index && item.index >= 4) {
+							imgBalun = 'green.svg'
 						}
-						myMap.geoObjects.removeAll()
+	
+						let myPlacemark = new ymaps.Placemark([item.coordinateOne, item.coordinateTwo], {
+							balloonContent: `
+							<div class="balun">
+								<h3 class="balun-title">
+									${item.name}
+								</h3>
+								<div class="balun-row">
+									<img src="./assets/img/balun/star.svg" alt="" class="balun-img">
+									${item.index}
+								</div>
+								<p class="balun-status">
+									${item.status}
+								</p>
+								<a href="${item.link}" target="_blank" class="balun-link">
+									Подробнее →
+								</a>
+							</div>
+													`
+						}, {
+							// Опции.
+							// Необходимо указать данный тип макета.
+							iconLayout: 'default#imageWithContent',
+							// Своё изображение иконки метки.
+							iconImageHref: `./assets/img/balun/${imgBalun}`,
+							// Размеры метки.
+							iconImageSize: [48, 48],
+							// Смещение левого верхнего угла иконки относительно
+							// её "ножки" (точки привязки).
+							iconImageOffset: [-24, -24],
+							// Смещение слоя с содержимым относительно слоя с картинкой.
+							iconContentOffset: [15, 15],
+							hideIconOnBalloonOpen: false
+						})
+						myCollection.add(myPlacemark);
 					})
-				})
-	
-	
+					myMap.geoObjects.add(myCollection);
+					// Вычисляем необходимые координаты краёв карты и
+					//  устанавливаем их для нашего экземпляра карты
+					myMap.setBounds(myCollection.getBounds());
+				}
 			}
-			addMark()
-			function addMarkerMap(coordinateOne, coordinateTwo, text) {
-				myMap.geoObjects.add(new ymaps.Placemark([`${coordinateOne}`, `${coordinateTwo}`], {
-					balloonContent: `${text}`
-				}, {
-					// Опции.
-					// Необходимо указать данный тип макета.
-					iconLayout: 'default#imageWithContent',
-					// Своё изображение иконки метки.
-					iconImageHref: './assets/img/icon.svg',
-					// Размеры метки.
-					iconImageSize: [48, 48],
-					// Смещение левого верхнего угла иконки относительно
-					// её "ножки" (точки привязки).
-					iconImageOffset: [-24, -24],
-					// Смещение слоя с содержимым относительно слоя с картинкой.
-					iconContentOffset: [15, 15],
 	
-				}))
-			}
 		}
+		mapInit();
 	</script>
 	
 	<script src="assets/js/app.min.js"></script>

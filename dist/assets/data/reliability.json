@@ -1,0 +1,26 @@
+[
+	{
+		"coordinateOne": "59.902670",
+		"coordinateTwo": "30.258398",
+		"index": "1",
+		"name": "Орловский парк",
+		"status": "Доступность 1",
+		"link": "https://yandex.by/maps/2/saint-petersburg/?ll=30.315635%2C59.938951&z=11"
+	},
+	{
+		"coordinateOne": "59.922670",
+		"coordinateTwo": "30.258398",
+		"index": "3",
+		"name": "Орловский парк 1",
+		"status": "Доступность 2",
+		"link": "https://yandex.by/maps/2/saint-petersburg/?ll=30.315635%2C59.938951&z=11"
+	},
+	{
+		"coordinateOne": "59.932670",
+		"coordinateTwo": "30.258398",
+		"index": "4.5",
+		"name": "Орловский парк 2",
+		"status": "Доступность 3",
+		"link": "https://yandex.by/maps/2/saint-petersburg/?ll=30.315635%2C59.938951&z=11"
+	}
+]
