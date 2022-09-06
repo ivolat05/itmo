@@ -516,6 +516,50 @@
 			});
 			myMap.behaviors.disable('scrollZoom');
 	
+			// добовление удаление маркеров
+			function addMark() {
+				let mapsBtn = document.querySelectorAll('.maps-btn');
+				let mapsRezet = document.querySelector('.maps-rezet');
+				mapsBtn.forEach(item => {
+					item.addEventListener('click', () => {
+						mapsBtn.forEach(e => {
+							if (e.classList.contains('--active')) {
+								e.classList.remove('--active')
+							}
+						})
+						item.classList.add('--active')
+						addMarkerMap('59.942670, 30.278398', 'текст 1')
+					})
+				})
+				mapsRezet.addEventListener('click', () => {
+					mapsBtn.forEach(e => {
+						if (e.classList.contains('--active')) {
+							e.classList.remove('--active')
+						}
+					})
+				})
+	
+				function addMarkerMap(coordinate, text) {
+					myMap.geoObjects.add(new ymaps.Placemark([`${coordinate}`], {
+						balloonContent: `${text}`
+					}, {
+						// Опции.
+						// Необходимо указать данный тип макета.
+						iconLayout: 'default#imageWithContent',
+						// Своё изображение иконки метки.
+						iconImageHref: './assets/img/icon.svg',
+						// Размеры метки.
+						iconImageSize: [48, 48],
+						// Смещение левого верхнего угла иконки относительно
+						// её "ножки" (точки привязки).
+						iconImageOffset: [-24, -24],
+						// Смещение слоя с содержимым относительно слоя с картинкой.
+						iconContentOffset: [15, 15],
+	
+					}))
+				}
+			}
+			addMark()
 		}
 	</script>
 	
